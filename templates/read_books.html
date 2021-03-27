@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align: center;">
+<br><h1>قائمة الكتب المرشحة</h1><br>
+{% for book in all_books %}
+    <a href="{% url 'book_detail' book.pk %}">{{ book.name }}</a>
+    <p>"{{ book.author }}"</p>
+{% endfor %}
+</div>
+{% endblock content %}

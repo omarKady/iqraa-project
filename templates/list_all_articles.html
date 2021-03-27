@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for article in object_list %}
+<ul style="list-style-type: none; text-align: center;">    
+    <li>
+        <a href="{% url 'article_detail_view' article.pk %}">{{ article.title }}</a>
+        <p>{{ article.author }}</p>
+    </li>
+</ul>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>موسوعة اقرأ</title> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /> 
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+         
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-light bg-dark "> 
+            <div class="container">  
+                <button class="navbar-toggler" type="button" 
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false" 
+                        aria-label="Toggle navigation"> 
+                    <span class="navbar-toggler-icon"></span> 
+                </button> 
+      
+                <div class="collapse navbar-collapse"></div> 
+      
+                <div class="collapse navbar-collapse" 
+                     id="navbarSupportedContent">
+                          {% if user.is_authenticated %}
+                            <ul style="list-style-type: none;">
+                                <li>
+                                    <a style="color: azure;" href="{% url 'logout' %}"> 
+                                        الخروج 
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="color: azure;" href="{% url 'password_change' %}"> 
+                                        تغيير كلمة المرور 
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                          {% else %}
+                          <ul class="nav navbar-nav">
+                            <a style="color: azure;" href="{% url 'login' %}"> 
+                                الدخول 
+                            </a>
+                            <a style="color: azure;" href="{% url 'signup' %}"> 
+                                التسجيل 
+                            </a> 
+                            </ul>
+                          {% endif %}
+                    <ul class="navbar-nav mr-auto">  
+                        <li class="nav-item"> 
+                            <a class="nav-link" 
+                               href="{% url 'read_books' %}" style="color:azure;"> 
+                              ترشيحات كتب 
+                            </a> 
+                        </li> 
+                        <li class="nav-item"> 
+                            <a class="nav-link"
+                               href="{% url 'list_all_articles' %}" style="color:azure;"> 
+                              مقالات 
+                            </a> 
+                        </li> 
+                        <li class="nav-item active"> 
+                            <a class="nav-link" 
+                               href="{% url 'home' %}" style="color:azure;"> 
+                              الرئيسية  
+                              <span class="sr-only"> 
+                                (current) 
+                              </span> 
+                          </a> 
+                        </li>
+                    </ul> 
+                </div> 
+                <a class="navbar-brand" style="color: azure;" href="{% url 'home' %}"> 
+                    موسوعة اقرأ 
+                  </a>
+            </div> 
+        </nav> 
+        <main style="background-color: #fce0f8 ;">
+            <div class="container"><br>
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </main>
+    </body>
+</html>

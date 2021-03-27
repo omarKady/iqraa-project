@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load social_share %}
+
+{% block content %}
+<div style="text-align: center;">
+    <br><h4 style="color:cornflowerblue; font-size: 40px;">{{ book_data.name }}</h4>
+    <br><p style="color: brown; font-size: 25px;">{{ book_data.author }}</p>
+    <div>
+        <ul style="list-style-type: none;">
+            <li style="display: inline;list-style-type: none;padding-right: 20px;float: left;">{% post_to_facebook object_or_url "Facebook!" %}</li>
+            <li style="display: inline;list-style-type: none;padding-right: 20px;float: left;">{% post_to_twitter "New Song: {{object.title}}. Check it out!" object_or_url "Twitter" %}</li>
+            <li style="display: inline;list-style-type: none;padding-right: 20px;float: left;">{% post_to_gplus object_or_url "Google+!" %}</li>
+            <li style="display: inline;list-style-type: none;padding-right: 20px;float: left;">{% post_to_linkedin object_or_url %}</li>
+            <li style="display: inline;list-style-type: none;padding-right: 20px;float: left;">{% send_email object.title "New Song: {{object.title}}. Check it out!" object_or_url "Share via email" %}</li>
+            <li style="display: inline;list-style-type: none;padding-right: 20px;float: left;">{% post_to_whatsapp object_or_url "WhatsApp" %}</li>
+        </ul><br><br>
+    </div>
+    <p>{{ book_data.summary }}</p>
+</div>
+
+{% for comment in book_data.comments.all %}
+    <div style="text-align: end;">
+        <p style="color: red;">{{ comment.comment_author }}</p>
+        <p style="color:forestgreen;">{{ comment.text }}</p>
+        <p style="color: blueviolet;">{{ comment.created_date }}</p>
+    </div>
+{% empty %}
+    <p style="text-align: center;color:indigo;">لم يتم التعليق حتى الآن</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+    <p><a href="{% url 'comment_book' book_data.pk %}">اكتب تعليق</a></p>
+{% else %}
+    <p><a href="{% url 'login' %}">سجل لكي تتمكن من التعليق</a></p>
+{% endif %}
+
+{% endblock content %}
