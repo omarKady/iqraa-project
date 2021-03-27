@@ -1,0 +1,1 @@
+web: gunicorn iqraa_project.wsgi --log-file -
