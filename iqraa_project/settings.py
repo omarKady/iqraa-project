@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'iqraadb',
         'USER': 'omar',
         'PASSWORD': 'omar',
-        'HOST': 'localhost',
+        'HOST': '0.0.0.0',
         'PORT': '5432',
     }
 }
