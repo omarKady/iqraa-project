@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 django = "==3.0"
-django-crispy-forms = "==1.7.2"
+django-crispy-forms = "==1.8.1"
 django-social-share = "==2.2.1"
 gunicorn = "==19.9.0"
 
