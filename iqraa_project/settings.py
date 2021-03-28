@@ -150,6 +150,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # DATABASES['default'] =  dj_database_url.config()
 
 
-#django_heroku.settings(locals())
+django_heroku.settings(locals())
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
