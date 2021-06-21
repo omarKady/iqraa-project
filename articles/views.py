@@ -9,6 +9,7 @@ from .models import Article, Comments
 class ArticleListView(ListView):
     model = Article
     queryset = Article.objects.order_by('-id')[:10]
+    print("SQL QUERY :: ", queryset.query)
     template_name = 'home.html'
 
 class ArticleDetailView(DetailView):

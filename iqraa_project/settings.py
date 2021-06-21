@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'books.apps.BooksConfig',
     'articles.apps.ArticlesConfig',
     'users.apps.UsersConfig',
+    'api.apps.ApiConfig',
     # 3rd party
     'django_social_share',
     'crispy_forms',
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
