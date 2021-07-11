@@ -52,6 +52,13 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+# Permissions
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',

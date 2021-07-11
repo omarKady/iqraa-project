@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('articles.urls')),
     path('books/', include('books.urls')),
-    path('api/', include('api.urls')),
+    path('api/v1/', include('api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
     #path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
